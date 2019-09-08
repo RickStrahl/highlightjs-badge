@@ -7,7 +7,7 @@ This small JavaScript library that complements the [highlightJs Syntax Highlighe
 
 Here's what this looks like:
 
-![](screenshot.png)
+![](ScreenShot.png)
 
 This small JavaScript file contains a single file that can be loaded after highlightJS has been loaded and is fully self-contained - add the script and it works without additional dependencies. 
 
