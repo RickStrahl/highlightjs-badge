@@ -1,4 +1,4 @@
-# HighlightJS Copy Code and Syntax Badge
+# Copy Code and Show Syntax Badge for highlightJs
 
 This small JavaScript library that complements the [highlightJs Syntax Highligher](https://highlightjs.org/) by providing a badge in top right corner that:
 
