@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    
+    <meta charset="utf-8">    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">     
+
+    <style>
+        /* override badge styling */
+        .code-badge {
+             background: #555 !important;
+             padding: 8px !important;
+        }
+        .code-badge-copy-icon {
+            font-size: 1.3em !important;
+        }
+    </style>
+    </head>
+<body>    
+<div class="container">
+    
+    <h1>HighlightJS Code Copying</h1>
+    <hr>
+    
+    <h3 class="mt-3">Single line code snippet</h3>
+    <pre><code class="hljs language-js">let x = 1;
+x++;</code></pre>
+
+
+    <h3 class="mt-3">Single line code snippet</h3>
+    
+    <pre><code class="hljs language-cs">public static string GetChecksumFromFile(string file)
+{
+    if (!File.Exists(file))
+        return null;
+
+    try
+    {
+        byte[] checkSum;
+        using (FileStream stream = File.Open(file, FileMode.Open, FileAccess.Read, FileShare.Read))
+        {
+            var md = new MD5CryptoServiceProvider();
+            checkSum = md.ComputeHash(stream);
+        }
+
+        return StringUtils.BinaryToBinHex(checkSum);
+    }
+    catch
+    {
+        return null;
+    }
+}</code></pre>
+
+    
+    
+</div>
+
+<link href="highlightJS/styles/vs2015.css" rel="stylesheet">
+<script src="highlightJs/highlight.pack.js"></script>
+<script src="highlightjs-badge.js"></script>    
+
+<script>
+    setTimeout(function () {
+        var pres = document.querySelectorAll("pre>code");
+        for (var i = 0; i < pres.length; i++) {
+            hljs.highlightBlock(pres[i]);
+        }
+        var options = {
+            contentSelector: "#ArticleBody",
+            // Delay in ms used for `setTimeout` before badging is applied
+            // Use if you need to time highlighting and badge application
+            // since the badges need to be applied afterwards.
+            // 0 - direct execution (ie. you handle timing
+            loadDelay:0,
+
+            // CSS class(es) used to render the copy icon.
+            copyIconClass: "fa fa-copy",
+            // CSS class(es) used to render the done icon.
+            checkIconClass: "fa fa-check text-success"
+        };
+        window.highlightJsBadge(options);
+    },10);
+</script>
+
+    
+</body> 
+</html>
