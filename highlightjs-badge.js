@@ -137,9 +137,19 @@ function highlightJsBadge(opt) {
             var lang = "";
 
             for (var i = 0; i < el.classList.length; i++) {
+                // class="hljs language-csharp"
                 if (el.classList[i].substr(0, 9) === 'language-') {
                     lang = el.classList[i].replace('language-', '');
                     break;
+                }
+                // class="kotlin hljs"   (auto detected)
+                if (!lang) {
+                    for (var j = 0; j < el.classList.length; j++) {
+                        if (el.classList[j] == 'hljs')
+                            continue;
+                        lang = el.classList[j];
+                        break;
+                    }
                 }
             }
 

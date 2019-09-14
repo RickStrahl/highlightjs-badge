@@ -1,15 +1,18 @@
 # Copy Code and Show Syntax Badge for highlightJs
-
 This small JavaScript library that complements the [highlightJs Syntax Highligher](https://highlightjs.org/) by providing a badge in top right corner that:
 
 * Shows active Syntax for the code block
 * Allows copying the code block to Clipboard
 
+```
+this is text
+```
+
 Here's what this looks like:
 
 ![](ScreenShot.png)
 
-This small JavaScript file contains a single file that can be loaded after highlightJS has been loaded and is fully self-contained - add the script and it works without additional dependencies. 
+This small, single JavaScript file contains a single file that can be loaded after highlightJS has been loaded. It's fully self-contained: Add the script and it works out of the box without additional dependencies or styling.
 
 ### Usage
 To use this library is very simple - you add a script file and call `highlightJsBadge()` after highlightJS has been applied.
@@ -17,6 +20,7 @@ To use this library is very simple - you add a script file and call `highlightJs
 ```html
 <link href="scripts/highlightjs/styles/vs2015.css" rel="stylesheet" />
 <script src="scripts/highlightjs/highlight.pack.js"></script>
+
 <script src="scripts/highlightjs-badge.min.js"></script>
 <script>
     // apply HighlightJS
