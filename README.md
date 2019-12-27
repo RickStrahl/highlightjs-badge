@@ -4,11 +4,21 @@ This small JavaScript library that complements the [highlightJs Syntax Highlighe
 * Shows active Syntax for the code block
 * Allows copying the code block to Clipboard
 
-Here's what this looks like:
+You can install it from:
+
+```ps
+npm install highlightjs-badge
+```
+
+Here's what the code badge looks like attached to several highlightjs code blocks:
 
 ![](ScreenShot.png)
 
+<small>[Codepen Example](https://codepen.io/rstrahl/pen/RwNZGBE)</small>
+
 This small, single JavaScript file contains a single file that can be loaded after highlightJS has been loaded. It's fully self-contained: Add the script and it works out of the box without additional dependencies or styling.
+
+
 
 ### Usage
 To use this library is very simple - you add a script file and call `highlightJsBadge()` after highlightJS has been applied.
@@ -71,11 +81,6 @@ Alternately you can completely replace the template and styling. If you look at 
     "@media print {
         .code-badge { display: none; }
     }
-    pre>code.hljs {
-        position: relative;
-    }
-    .fa.text-success:{ color: limegreen !important}
-
     .code-badge {
         display: flex;
         flex-direction: row;
@@ -120,6 +125,7 @@ Alternately you can completely replace the template and styling. If you look at 
         padding: 0 7px;
         margin-top:2;
     }
+    .fa.text-success:{ color: limegreen !important}    
 </style>
 <div id="CodeBadgeTemplate" style="display:none">
     <div class="code-badge">
