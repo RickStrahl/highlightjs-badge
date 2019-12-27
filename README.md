@@ -4,7 +4,7 @@ This small JavaScript library that complements the [highlightJs Syntax Highlighe
 * Shows active Syntax for the code block
 * Allows copying the code block to Clipboard
 
-You can install it from:
+You can install it [from NPM](https://www.npmjs.com/package/highlightjs-badge):
 
 ```ps
 npm install highlightjs-badge
