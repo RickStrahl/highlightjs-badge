@@ -7,6 +7,8 @@ highlightJs Badge
 A copy code and language display badge
 for the highlightJs Syntax highlighter.
 
+v0.1.2
+
 by Rick Strahl, 2019
 License: MIT
 
@@ -114,8 +116,8 @@ function highlightJsBadge(opt) {
             addCodeBadge();
     }
 
-    function addCodeBadge() {
-        // first make sure the template exists - if not we embed it
+  function addCodeBadge() {
+      // first make sure the template exists - if not we embed it
         if (!document.querySelector(options.templateSelector)) {
             var node = document.createElement("div");
             node.innerHTML = getTemplate();            
@@ -177,8 +179,7 @@ function highlightJsBadge(opt) {
             // insert the Hud panel
             var $newHud = document.createElement("div");
             $newHud.innerHTML = html;
-            $newHud = $newHud.querySelector(".code-badge");
-            $newHud.style.display = "flex";
+            $newHud = $newHud.querySelector(".code-badge");          
 
             if(options.copyIconContent)
               $newHud.querySelector(".code-badge-copy-icon").innerText = options.copyIconContent;
@@ -252,9 +253,12 @@ function highlightJsBadge(opt) {
     }
 
     function getTemplate() {
-        var stringArray =
-        [
-            "<style>",
+      var stringArray =
+      [
+        "<style>",
+            "@media print {",
+            "   .code-badge { display: none; }",
+            "}",  
             "    pre>code.hljs {",
             "        position: relative;",
             "    }",

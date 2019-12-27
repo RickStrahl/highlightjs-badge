@@ -4,10 +4,6 @@ This small JavaScript library that complements the [highlightJs Syntax Highlighe
 * Shows active Syntax for the code block
 * Allows copying the code block to Clipboard
 
-```
-this is text
-```
-
 Here's what this looks like:
 
 ![](ScreenShot.png)

@@ -1,6 +1,6 @@
 {
   "name": "highlightjs-badge",
-  "version": "1.0.0",
+  "version": "0.1.2",
   "description": "This small JavaScript library that complements the [highlighJs Syntax Highligher](https://highlightjs.org/) by providing an overlay badge that lets you copy code to the clipboard and display the active Syntax language.",
   "main": "highlightjs-badge.js",
   "dependencies": {},
@@ -8,10 +8,10 @@
     "browser-sync": "^2.26.7",
     "uglify-js": "^3.6.0"
   },
-  "scripts": {
-    "clean": "rm /s /q node_modules",
+  "scripts": {    
     "build": "uglifyjs --compress --mangle -o highlightjs-badge.min.js  -- highlightjs-badge.js",
-    "start": "browser-sync start --server --files '*.htm*, *.css, *.js' --port 5021"
+    "start": "browser-sync start --server --files '*.htm*, *.css, *.js' --port 5021",
+    "start-dotnet": "livereloadserver"
   },
   "author": "Rick Strahl, West Wind Technologies",
   "license": "MIT"
