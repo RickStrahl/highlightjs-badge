@@ -24,10 +24,13 @@ This small, single JavaScript file contains a single file that can be loaded aft
 To use this library is very simple - you add a script file and call `highlightJsBadge()` after highlightJS has been applied.
 
 ```html
+<!-- load highlightjs first -->
 <link href="scripts/highlightjs/styles/vs2015.css" rel="stylesheet" />
 <script src="scripts/highlightjs/highlight.pack.js"></script>
 
+<!-- then add this badge component -->
 <script src="scripts/highlightjs-badge.min.js"></script>
+
 <script>
     // apply HighlightJS
     var pres = document.querySelectorAll("pre>code");
@@ -35,7 +38,7 @@ To use this library is very simple - you add a script file and call `highlightJs
        hljs.highlightBlock(pres[i]);
     }
     
-    // add HighlightJS-badge
+    // add HighlightJS-badge (options are optional)
     var options = {   // optional
        contentSelector: "#ArticleBody",
        
@@ -137,10 +140,12 @@ Alternately you can completely replace the template and styling. If you look at 
 </div>
 ```
 
-This is the same template that the library internally holds and injects into the page, but if the `CodeBadgeTemplate` exists in the document then that is used instead of the embedded template. At this point you can override the styling and layout as needed. You can also separate the CSS into a separate file and only include the `#CodeBadgeTemplate` element to force the script to not load it's internal template.
+This is the same template that the library internally holds and injects into the page, but if `#CodeBadgeTemplate` exists in the document then that is used instead of the embedded template. When using your own template no styling is applied so you should embed the entire base template and modify/add as needed. 
+
+You can also separate out the CSS into a separate file and only include the `#CodeBadgeTemplate` `<div>` element to force the script to not load it's internal template.
 
 ### Requirements
-This library is a self-contained JavaScript file so there are no direct external dependencies. However there are a couple of requirements:
+This library is a self-contained JavaScript file so there are no direct external dependencies. However, there are a couple of requirements:
 
 #### Some ES6 Usage
 The library uses a couple of ES6 functions:
