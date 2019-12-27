@@ -68,6 +68,9 @@ Alternately you can completely replace the template and styling. If you look at 
 
 ```html
 <style>
+    "@media print {
+        .code-badge { display: none; }
+    }
     pre>code.hljs {
         position: relative;
     }
@@ -128,7 +131,7 @@ Alternately you can completely replace the template and styling. If you look at 
 </div>
 ```
 
-This is the same template that the library internally holds and injects into the page, but if the `CodeBadgeTemplate` exists in the document then that is used instead of the embedded template. At this point you can override the styling and layout as needed.
+This is the same template that the library internally holds and injects into the page, but if the `CodeBadgeTemplate` exists in the document then that is used instead of the embedded template. At this point you can override the styling and layout as needed. You can also separate the CSS into a separate file and only include the `#CodeBadgeTemplate` element to force the script to not load it's internal template.
 
 ### Requirements
 This library is a self-contained JavaScript file so there are no direct external dependencies. However there are a couple of requirements:
@@ -171,5 +174,19 @@ window.highlightJsBadge(options);
 ### License 
 Licensed under the MIT License. There's no charge to use, integrate or modify the code for this project. You are free to use it in personal, commercial, government and any other type of application.
 
+
+### Version History
+
+### v0.1.4
+
+
+* **Turn off code badge in Print Media Style**  
+Added media class so that the code-badge is not shown when printing is active for print or PDF generation.
+
+* **Fix Internet Explorer missing Line Feeds**  
+Fixed issue where IE 11/10 was not properly picking up line breaks in the copied text content. Still useful for those of us using the Web Browser control in Windows. Fixed by using `textContent` instead of `innerText`.
+
+* **Badge Position on Scrolled Content**   
+Fixed issue where the badge overlay would not properly stay right aligned when a code block was scrolled horizontally. Fixed by moving `position:relative` up to the `<pre>` tag **via code**. Unfortunately this style feature is not directly settable via CSS so the relative style gets hardcoded when the badge is added to the page.
 
 
