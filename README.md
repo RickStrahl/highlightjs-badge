@@ -1,5 +1,5 @@
-# Copy Code and Show Syntax Badge for highlightJs
-This small JavaScript library that complements the [highlightJs Syntax Highligher](https://highlightjs.org/) by providing a badge in top right corner that:
+#  HighlightJs Copy Code Badge Component
+This small JavaScript library complements the [highlightJs Syntax Highligher](https://highlightjs.org/) by providing a badge in top right corner of code snippets.
 
 * Shows active Syntax for the code block
 * Allows copying the code block to Clipboard
@@ -10,18 +10,20 @@ You can install it [from NPM](https://www.npmjs.com/package/highlightjs-badge):
 npm install highlightjs-badge
 ```
 
+
+* [Codepen Example](https://codepen.io/rstrahl/pen/RwNZGBE)
+* [HighlightJs-Badge Blog Post]()
+
 Here's what the code badge looks like attached to several highlightjs code blocks:
 
 ![](ScreenShot.png)
 
-<small>[Codepen Example](https://codepen.io/rstrahl/pen/RwNZGBE)</small>
-
-This small, single JavaScript file contains a single file that can be loaded after highlightJS has been loaded. It's fully self-contained: Add the script and it works out of the box without additional dependencies or styling.
-
-
+This small, single JavaScript file component can be loaded after highlightJS has been loaded. It's fully self-contained. Add the script, call the `window.highlightJsBadge()`, and you're up and running without any other configuration or dependencies.
 
 ### Usage
 To use this library is very simple - you add a script file and call `highlightJsBadge()` after highlightJS has been applied.
+
+The following is a typical configuration for both highlightJs and highlightJs-Badge:
 
 ```html
 <!-- load highlightjs first -->

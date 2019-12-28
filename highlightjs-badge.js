@@ -228,15 +228,12 @@ function highlightJsBadge(opt) {
     }
 
 
-
     function copyCodeToClipboard(e) {
-           
+        // walk back up to <pre> tag
         var $origCode = e.srcElement.parentElement.parentElement.parentElement;
 
-        // we have to clear out the .code-badge - clone and remove
-        var $code = $origCode.cloneNode(true);
-        var $elHud = $code.querySelector(".code-badge");
-        $elHud.innerHTML = ""; // create text
+        // select the <code> tag
+        var $code = $origCode.querySelector("pre>code").cloneNode(true);
         
         var text = $code.textContent || $code.innerText;
         var el = document.createElement('textarea');
