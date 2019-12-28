@@ -84,6 +84,9 @@ Alternately you can completely replace the template and styling. If you look at 
     "@media print {
         .code-badge { display: none; }
     }
+    .code-badge-pre {
+        position: relative; 
+    }
     .code-badge {
         display: flex;
         flex-direction: row;
@@ -99,19 +102,12 @@ Alternately you can completely replace the template and styling. If you look at 
         right: 0;
         top: 0;
     }
-
-    .code-badge.semi-active {
-        opacity: .50
-    }
-
     .code-badge.active {
         opacity: 0.8;
     }
-
     .code-badge:hover {
         opacity: .95;
     }
-
     .code-badge a,
     .code-badge a:hover {
         text-decoration: none;
@@ -188,8 +184,7 @@ Licensed under the MIT License. There's no charge to use, integrate or modify th
 
 ### Version History
 
-### v0.1.4
-
+### v0.1.5
 
 * **Turn off code badge in Print Media Style**  
 Added media class so that the code-badge is not shown when printing is active for print or PDF generation.
