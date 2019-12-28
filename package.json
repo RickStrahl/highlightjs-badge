@@ -1,6 +1,6 @@
 {
   "name": "highlightjs-badge",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "This small JavaScript library that complements the [highlighJs Syntax Highligher](https://highlightjs.org/) by providing an overlay badge that lets you copy code to the clipboard and display the active Syntax language.",
   "main": "highlightjs-badge.js",
   "dependencies": {},
