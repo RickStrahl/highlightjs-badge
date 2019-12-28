@@ -140,9 +140,9 @@ Alternately you can completely replace the template and styling. If you look at 
 </div>
 ```
 
-This is the same template that the library internally holds and injects into the page, but if `#CodeBadgeTemplate` exists in the document then that is used instead of the embedded template. When using your own template no styling is applied so you should embed the entire base template and modify/add as needed. 
+This is the same template that the library internally holds and injects into the page, but if `#CodeBadgeTemplate` exists in the document then that is used instead of the embedded template. When using your own template no styling is applied. so you neeed to include both the CSS and the `CodeBadgeTemplate`.
 
-You can also separate out the CSS into a separate file and only include the `#CodeBadgeTemplate` `<div>` element to force the script to not load it's internal template.
+You can optionally separate out the CSS into a separate file and only include the `#CodeBadgeTemplate` `<div>` element - that's sufficient for your custom template and styling to kick in.
 
 ### Requirements
 This library is a self-contained JavaScript file so there are no direct external dependencies. However, there are a couple of requirements:
