@@ -231,25 +231,30 @@ function highlightJsBadge(opt) {
     function copyCodeToClipboard(e) {
         // walk back up to <pre> tag
         var $origCode = e.srcElement.parentElement.parentElement.parentElement;
-
-        // select the <code> tag
-        var $code = $origCode.querySelector("pre>code").cloneNode(true);
-        
+    
+        // select the <code> tag and grab text
+        var $code = $origCode.querySelector("pre>code");
         var text = $code.textContent || $code.innerText;
+        
+        // Create a textblock and assign the text and add to document
         var el = document.createElement('textarea');
-
         el.value = text.trim();
         document.body.appendChild(el);
         el.style.display = "block";
-
+    
+        // select the entire textblock
         if (window.document.documentMode)
             el.setSelectionRange(0, el.value.length);
         else
             el.select();
         
+        // copy to clipboard
         document.execCommand('copy');
+        
+        // clean up element
         document.body.removeChild(el);
         
+        // show the check icon (copied) briefly
         swapIcons($origCode);     
     }
 

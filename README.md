@@ -1,5 +1,5 @@
 #  HighlightJs Copy Code Badge Component
-This small JavaScript library complements the [highlightJs Syntax Highligher](https://highlightjs.org/) by providing a badge in top right corner of code snippets.
+This small JavaScript library complements the [highlightJs Syntax Highligher](https://highlightjs.org/) by providing a badge in the top right corner of highlightJs code snippets.
 
 * Shows active Syntax for the code block
 * Allows copying the code block to Clipboard
@@ -12,7 +12,7 @@ npm install highlightjs-badge
 
 
 * [Codepen Example](https://codepen.io/rstrahl/pen/RwNZGBE)
-* [HighlightJs-Badge Blog Post]()
+* [HighlightJs-Badge Blog Post](https://weblog.west-wind.com/posts/2019/Dec/30/A-HighlightJs-Copy-Code-Badge-Component)
 
 Here's what the code badge looks like attached to several highlightjs code blocks:
 
