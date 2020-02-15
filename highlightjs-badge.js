@@ -157,10 +157,18 @@ function highlightJsBadge(opt) {
                        
             var lang = "";
 
+            console.log('before: ' + lang);
+
             for (var i = 0; i < el.classList.length; i++) {
+                var cl = el.classList[i];
                 // class="hljs language-csharp"
-                if (el.classList[i].substr(0, 9) === 'language-') {
+                if (cl.substr(0, 9) === 'language-') {
                     lang = el.classList[i].replace('language-', '');
+                    break;
+                }
+                // class="hljs lang-cs"  // docFx
+                else if (cl.substr(0, 5) === 'lang-') {
+                    lang = el.classList[i].replace('lang-', '');
                     break;
                 }
                 // class="kotlin hljs"   (auto detected)
@@ -173,6 +181,7 @@ function highlightJsBadge(opt) {
                     }
                 }
             }
+            console.log('after: ' + lang);
 
             if (lang)
                 lang = lang.toLowerCase();
@@ -299,7 +308,7 @@ function highlightJsBadge(opt) {
             "        background: transparent;",
             "        background: #333;",
             "        color: white;",
-            "        font-size: 0.8em;",
+            "        font-size: 0.875em;",
             "        opacity: 0.5;",
             "        transition: opacity linear 0.5s;",
             "        border-radius: 0 0 0 7px;",
@@ -383,7 +392,7 @@ if (highlightJsBadgeAutoLoad)
         background: transparent;
         background: #333;
         color: white;
-        font-size: 0.8em;
+        font-size: 0.875em;
         opacity: 0.5;
         border-radius: 0 0 0 7px;
         padding: 5px 8px 5px 8px;

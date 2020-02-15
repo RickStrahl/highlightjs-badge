@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>    
+    <meta charset="utf-8">    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">     
+
+  
+    <style>
+        /* override badge styling */
+        .code-badge {
+             background: #555 !important;
+             padding: 8px !important;
+        }
+        .code-badge-copy-icon {
+            font-size: 1.3em !important;      
+        }
+        .hide-on-load {
+            display: none;    
+        }
+    </style>
+  
+  
+<link href="https://rickstrahl.github.io/highlightjs-badge/highlightjs/styles/vs2015.css" rel="stylesheet">
+<script src="https://rickstrahl.github.io/highlightjs-badge/highlightjs/highlight.pack.js"></script>
+  
+    </head>
+<body class="hide-on-load">    
+<div class="container">
+    
+    <h1>HighlightJS Code Copying</h1>
+    <hr>
+    
+    <h3 class="mt-3">Single line code snippet</h3>
+    <pre><code class="hljs language-js">let x = 1;
+x++;</code></pre>
+
+
+    <h3 class="mt-3">Single line code snippet</h3>
+    
+    <pre><code class="hljs language-cs">public static string GetChecksumFromFile(string file)
+{
+    if (!File.Exists(file))
+        return null;
+
+    try
+    {
+        byte[] checkSum;
+        using (FileStream stream = File.Open(file, FileMode.Open, FileAccess.Read, FileShare.Read))
+        {
+            var md = new MD5CryptoServiceProvider();
+            checkSum = md.ComputeHash(stream);
+        }
+
+        return StringUtils.BinaryToBinHex(checkSum);
+    }
+    catch
+    {
+        return null;
+    }
+}</code></pre>  
+
+
+<h3>Auto-Detected</h3>
+<pre><code>Content-Type: text/html
+Accept: application/json
+Content-Length: 12332
+</code></pre>
+
+    
+</div>
+
+<!-- <script src="https://rickstrahl.github.io/highlightjs-badge/highlightjs-badge.js"></script> -->
+<!-- <script src="highlightjs-badge.js"></script> -->
+
+<script>
+    setTimeout(function () {
+        var pres = document.querySelectorAll("pre>code");
+        for (var i = 0; i < pres.length; i++) {
+            hljs.highlightBlock(pres[i]);
+        }
+        var options = {
+            contentSelector: "#ArticleBody",
+            // Delay in ms used for `setTimeout` before badging is applied
+            // Use if you need to time highlighting and badge application
+            // since the badges need to be applied afterwards.
+            // 0 - direct execution (ie. you handle timing
+            loadDelay:0,
+
+            // CSS class(es) used to render the copy icon.
+            copyIconClass: "fa fa-copy",
+            // CSS class(es) used to render the done icon.
+            checkIconClass: "fa fa-check text-success"
+        };
+        window.highlightJsBadge(options);
+    },10);
+</script>
+
+
+<!-- optional customization template -->
+
+<!-- Used in this demo  and styling can be adjusted here -->
+<!-- <style>
+    .code-badge {
+        display: flex;
+        flex-direction: row;
+        white-space: normal;                
+        color: white;
+        font-size: 0.8em;
+        opacity: 0.4;
+        border-radius: 0 0 0 7px;
+        padding: 5px 8px 5px 8px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .code-badge.semi-active {
+        opacity: .4;
+    }
+
+    .code-badge.active {
+        opacity: 0.8;
+    }
+
+    .code-badge:hover {
+        opacity: .95;
+    }
+
+    .code-badge a,
+    .code-badge a:hover {
+        text-decoration: none;
+    }
+
+    .code-badge-language {
+        margin-right: 10px;
+        font-weight: 600;
+        color: goldenrod;
+    }
+    .code-badge-copy-icon {
+        font-size: 1.2em;
+        cursor: pointer;
+        padding: 0 7px;
+        margin-top:2;
+    }
+    .fa.text-success { color: purple !important }
+</style>
+<div id="CodeBadgeTemplate" style="display:none">
+    <div class="code-badge">
+        <div class="code-badge-language">{{language}}</div>
+        <div title="Copy to clipboard">
+            <i class="{{copyIconClass}} code-badge-copy-icon"></i>
+        </div>
+     </div>
+</div> -->
+    
+<!-- end customization template -->
+
+<script>
+if (typeof Object.assign !== 'function') {
+  // Must be writable: true, enumerable: false, configurable: true
+  Object.defineProperty(Object, "assign", {
+    value: function assign(target, varArgs) { // .length of function is 2
+      'use strict';
+      if (target === null || target === undefined) {
+        throw new TypeError('Cannot convert undefined or null to object');
+      }
+
+      var to = Object(target);
+
+      for (var index = 1; index < arguments.length; index++) {
+        var nextSource = arguments[index];
+
+        if (nextSource !== null && nextSource !== undefined) { 
+          for (var nextKey in nextSource) {
+            // Avoid bugs when hasOwnProperty is shadowed
+            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+              to[nextKey] = nextSource[nextKey];
+            }
+          }
+        }
+      }
+      return to;
+    },
+    writable: true,
+    configurable: true
+  });
+}
+
+if (!String.prototype.trim) {
+  String.prototype.trim = function () {
+    return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+  };
+}
+
+setTimeout(function() {
+    document.body.classList.remove('hide-on-load');
+},90);
+</script>
+
+</body> 
+</html>
