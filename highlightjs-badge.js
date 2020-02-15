@@ -156,9 +156,7 @@ function highlightJsBadge(opt) {
                 continue; // already exists
                        
             var lang = "";
-
-            console.log('before: ' + lang);
-
+            
             for (var i = 0; i < el.classList.length; i++) {
                 var cl = el.classList[i];
                 // class="hljs language-csharp"
@@ -181,7 +179,6 @@ function highlightJsBadge(opt) {
                     }
                 }
             }
-            console.log('after: ' + lang);
 
             if (lang)
                 lang = lang.toLowerCase();
