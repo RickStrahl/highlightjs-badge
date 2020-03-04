@@ -116,7 +116,15 @@ function highlightJsBadge(opt) {
 
         // CSS class(es) used to render the done icon.
         checkIconClass: "fa fa-check text-success",
-        checkIconContent: ""  
+        checkIconContent: "",
+        // If pre>code plugin line number is active set to true the boolean
+        hasLineNumber: "false",
+        // Title on hover
+        title: "Copy to clipboard",
+        // Label in addition to language name on badge     
+        label: "",
+        // If whole badge is "clickable"
+        badgeClickable: "false"
     };
 
     function initialize(opt) {
@@ -156,11 +164,17 @@ function highlightJsBadge(opt) {
                 continue; // already exists
                        
             var lang = "";
-
+            
             for (var i = 0; i < el.classList.length; i++) {
+                var cl = el.classList[i];
                 // class="hljs language-csharp"
-                if (el.classList[i].substr(0, 9) === 'language-') {
+                if (cl.substr(0, 9) === 'language-') {
                     lang = el.classList[i].replace('language-', '');
+                    break;
+                }
+                // class="hljs lang-cs"  // docFx
+                else if (cl.substr(0, 5) === 'lang-') {
+                    lang = el.classList[i].replace('lang-', '');
                     break;
                 }
                 // class="kotlin hljs"   (auto detected)
@@ -191,11 +205,11 @@ function highlightJsBadge(opt) {
             else if (lang == "fox")
                 lang = "foxpro";
 
-                
             var html = hudText.replace("{{language}}", lang)
                               .replace("{{copyIconClass}}",options.copyIconClass)
+                              .replace("{{title}}",options.title)
+                              .replace("{{label}}",options.label)
                               .trim();
-
             // insert the Hud panel
             var $newHud = document.createElement("div");
             $newHud.innerHTML = html;
@@ -214,7 +228,7 @@ function highlightJsBadge(opt) {
 
         var $content = document.querySelector(options.contentSelector);
 
-        // single copy click handler
+        // single copy click handler on icon
         $content.addEventListener("click",
             function (e) {                               
                 var $clicked = e.srcElement;
@@ -223,17 +237,28 @@ function highlightJsBadge(opt) {
                     e.cancelBubble = true;
                     copyCodeToClipboard(e);
                 }
+                // on badge
+                if(Boolean(options.badgeClickable)) {
+                	if ($clicked.className.indexOf('code-badge') != -1) {
+                         e.preventDefault();
+                         e.cancelBubble = true;
+                         copyCodeToClipboard(e);
+                    }
+                }
                 return false;
             });
+        
     }
-
-
+  
     function copyCodeToClipboard(e) {
         // walk back up to <pre> tag
         var $origCode = e.srcElement.parentElement.parentElement.parentElement;
-    
-        // select the <code> tag and grab text
+        
+        // select the <code> tag and grab text    
         var $code = $origCode.querySelector("pre>code");
+        if(Boolean(options.hasLineNumber)) {
+        	 $code = $origCode.querySelectorAll("pre>code")[1];
+        }
         var text = $code.textContent || $code.innerText;
         
         // Create a textblock and assign the text and add to document
@@ -299,13 +324,14 @@ function highlightJsBadge(opt) {
             "        background: transparent;",
             "        background: #333;",
             "        color: white;",
-            "        font-size: 0.8em;",
+            "        font-size: 0.875em;",
             "        opacity: 0.5;",
             "        transition: opacity linear 0.5s;",
             "        border-radius: 0 0 0 7px;",
             "        padding: 5px 8px 5px 8px;",
             "        position: absolute;",
             "        right: 0;",
+            (Boolean(options.badgeClickable) ? 'cursor: pointer;' : ''),
             "        top: 0;",
             "    }",            
             "    .code-badge.active {",
@@ -336,8 +362,8 @@ function highlightJsBadge(opt) {
             "</style>",
             "<div id=\"CodeBadgeTemplate\" style=\"display:none\">",
             "    <div class=\"code-badge\">",
-            "        <div class=\"code-badge-language\" >{{language}}</div>",
-            "        <div  title=\"Copy to clipboard\">",
+            "        <div class=\"code-badge-language\" >{{label}} {{language}}</div>",
+            "        <div  title=\"{{title}}\">",
             "            <i class=\"{{copyIconClass}} code-badge-copy-icon\"></i></i></a>",            
             "        </div>",
             "     </div>",
@@ -351,7 +377,7 @@ function highlightJsBadge(opt) {
         return t;
     }
 
-    initialize();
+    initialize(opt);
 }
 
 
@@ -383,7 +409,7 @@ if (highlightJsBadgeAutoLoad)
         background: transparent;
         background: #333;
         color: white;
-        font-size: 0.8em;
+        font-size: 0.875em;
         opacity: 0.5;
         border-radius: 0 0 0 7px;
         padding: 5px 8px 5px 8px;
