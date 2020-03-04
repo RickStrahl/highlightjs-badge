@@ -13,6 +13,6 @@
     "start": "browser-sync start --server --files '*.htm*, *.css, *.js' --port 5021",
     "start-dotnet": "livereloadserver"
   },
-  "author": "Rick Strahl, West Wind Technologies",
+  "author": "Stefano Sinatti",
   "license": "MIT"
 }
