@@ -1,5 +1,5 @@
 {
-  "name": "highlightjs-badge",
+  "name": "highlightjs-badge-ext",
   "version": "0.1.7",
   "description": "This small JavaScript library that complements the [highlighJs Syntax Highligher](https://highlightjs.org/) by providing an overlay badge that lets you copy code to the clipboard and display the active Syntax language.",
   "main": "highlightjs-badge.js",
@@ -8,11 +8,22 @@
     "browser-sync": "^2.26.7",
     "uglify-js": "^3.6.0"
   },
-  "scripts": {    
+  "scripts": {
     "build": "uglifyjs --compress --mangle -o highlightjs-badge.min.js  -- highlightjs-badge.js",
     "start": "browser-sync start --server --files '*.htm*, *.css, *.js' --port 5021",
     "start-dotnet": "livereloadserver"
   },
   "author": "Stefano Sinatti",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sinattieng/highlightjs-badge.git"
+  },
+  "keywords": [
+    "highlightjs-badge"
+  ],
+  "bugs": {
+    "url": "https://github.com/sinattieng/highlightjs-badge/issues"
+  },
+  "homepage": "https://github.com/sinattieng/highlightjs-badge#readme"
 }
