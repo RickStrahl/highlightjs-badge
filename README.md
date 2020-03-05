@@ -10,16 +10,6 @@ You can install it [from NPM](https://www.npmjs.com/package/highlightjs-badge):
 npm install highlightjs-badge
 ```
 
-
-* [Codepen Example](https://codepen.io/rstrahl/pen/RwNZGBE)
-* [HighlightJs-Badge Blog Post](https://weblog.west-wind.com/posts/2019/Dec/30/A-HighlightJs-Copy-Code-Badge-Component)
-
-Here's what the code badge looks like attached to several highlightjs code blocks:
-
-![](ScreenShot.png)
-
-This small, single JavaScript file component can be loaded after highlightJS has been loaded. It's fully self-contained. Add the script, call the `window.highlightJsBadge()`, and you're up and running without any other configuration or dependencies.
-
 ### Usage
 To use this library is very simple - you add a script file and call `highlightJsBadge()` after highlightJS has been applied.
 
@@ -31,7 +21,7 @@ The following is a typical configuration for both highlightJs and highlightJs-Ba
 <script src="scripts/highlightjs/highlight.pack.js"></script>
 
 <!-- then add this badge component -->
-<script src="scripts/highlightjs-badge.min.js"></script>
+<script src="scripts/highlightjs-badgejs.min.js"></script>
 
 <script>
     // apply HighlightJS
@@ -52,6 +42,16 @@ The following is a typical configuration for both highlightJs and highlightJs-Ba
     window.highlightJsBadge(options);
 </script>
 ```
+
+#### Options 
+
+Some other options added from the original: 
+
+* <b>title</b> : allow to set a different title on hover 
+* <b>label</b> : allow to set a prefix on badge name
+* <b>clickableBadge</b> : if set "true" allow to have pointer and click event on badge in addition to icon click
+* <b>hasLineNumber</b> : if set "true" indicates that content as line number plugin activated 
+
 
 ### Styling
 The default script includes default styling that should work great with dark themed syntax, and fairly well with light themed syntax.

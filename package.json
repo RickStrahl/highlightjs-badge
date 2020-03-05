@@ -1,15 +1,15 @@
 {
-  "name": "highlightjs-badge-ext",
-  "version": "0.1.7",
-  "description": "This small JavaScript library that complements the [highlighJs Syntax Highligher](https://highlightjs.org/) by providing an overlay badge that lets you copy code to the clipboard and display the active Syntax language.",
-  "main": "highlightjs-badge.js",
+  "name": "highlightjs-badgejs",
+  "version": "0.0.1",
+  "description": "This small JavaScript library that extended the [highlighJs Syntax Highligher](https://highlightjs.org/) and HighlightJs Copy Code Badge Component (https://github.com/RickStrahl/highlightjs-badge) by providing an overlay badge that lets you copy code to the clipboard and display the active Syntax language.",
+  "main": "highlightjs-badgejs.js",
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "uglify-js": "^3.6.0"
   },
   "scripts": {
-    "build": "uglifyjs --compress --mangle -o highlightjs-badge.min.js  -- highlightjs-badge.js",
+    "build": "uglifyjs --compress --mangle -o highlightjs-badgejs.min.js  -- highlightjs-badgejs.js",
     "start": "browser-sync start --server --files '*.htm*, *.css, *.js' --port 5021",
     "start-dotnet": "livereloadserver"
   },
@@ -17,13 +17,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sinattieng/highlightjs-badge.git"
+    "url": "git+https://github.com/sinattieng/highlightjs-badgejs.git"
   },
   "keywords": [
-    "highlightjs-badge"
+    "highlightjs-badgejs"
   ],
   "bugs": {
-    "url": "https://github.com/sinattieng/highlightjs-badge/issues"
+    "url": "https://github.com/sinattieng/highlightjs-badgejs/issues"
   },
-  "homepage": "https://github.com/sinattieng/highlightjs-badge#readme"
+  "homepage": "https://github.com/sinattieng/highlightjs-badgejs#readme"
 }
