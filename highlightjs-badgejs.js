@@ -158,6 +158,9 @@ function highlightJsBadge(opt) {
         var hudText = document.querySelector(options.templateSelector).innerHTML;
 
         var $codes = document.querySelectorAll("pre>code.hljs");        
+        if(Boolean(options.hasLineNumber)) {
+            $codes = document.querySelectorAll("pre>code.hljs:not(.hljs-line-numbers)");
+        }
         for (var index = 0; index < $codes.length; index++) {
             var el = $codes[index];
             if (el.querySelector(".code-badge"))
@@ -257,7 +260,7 @@ function highlightJsBadge(opt) {
         // select the <code> tag and grab text    
         var $code = $origCode.querySelector("pre>code");
         if(Boolean(options.hasLineNumber)) {
-        	 $code = $origCode.querySelectorAll("pre>code")[1];
+        	 $code = $origCode.querySelector("pre>code:not(.hljs-line-numbers)");
         }
         var text = $code.textContent || $code.innerText;
         
