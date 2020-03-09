@@ -130,8 +130,8 @@ Alternately you can completely replace the template and styling. If you look at 
 </style>
 <div id="CodeBadgeTemplate" style="display:none">
     <div class="code-badge">
-        <div class="code-badge-language">{{language}}</div>
-        <div title="Copy to clipboard">
+        <div class="code-badge-language">{{label}} {{language}}</div>
+        <div title="{{title}}">
             <i class="{{copyIconClass}} code-badge-copy-icon"></i>
         </div>
      </div>
