@@ -7,7 +7,7 @@ This small JavaScript library complements the [highlightJs Syntax Highligher](ht
 You can install it [from NPM](https://www.npmjs.com/package/highlightjs-badgejs):
 
 ```ps
-npm install highlightjs-badge
+npm install highlightjs-badgejs
 ```
 
 ### Usage
@@ -188,14 +188,18 @@ Licensed under the MIT License. There's no charge to use, integrate or modify th
 
 ### v0.0.2
 
+* **Fixed code**  
+  * Some code fixing in order to improve logic of new options
+
+
 ### v0.0.1
 
 * **Added new options**  
-* <b>title</b> : allow to set a different title on hover 
-* <b>label</b> : allow to set a prefix on badge name
-* <b>clickableBadge</b> : if set "true" allow to have pointer and click event on badge in addition to icon click
-* <b>hasLineNumber</b> : if set "true" indicates that content as line number plugin activated 
+  * <b>title</b> : allow to set a different title on hover 
+  * <b>label</b> : allow to set a prefix on badge name
+  * <b>clickableBadge</b> : if set "true" allow to have pointer and click event on badge in addition to icon click
+  * <b>hasLineNumber</b> : if set "true" indicates that content as line number plugin activated 
 
 * **Fixed bugs**  
-* Options not correctly initialized
+  * Options not correctly initialized
 
