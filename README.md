@@ -1,13 +1,13 @@
-#  HighlightJs Copy Code Badge Component
+#  HighlightJs Copy Code Badge-JS (extension) Component
 This small JavaScript library complements the [highlightJs Syntax Highligher](https://highlightjs.org/) by providing a badge in the top right corner of highlightJs code snippets.
 
 * Shows active Syntax for the code block
 * Allows copying the code block to Clipboard
 
-You can install it [from NPM](https://www.npmjs.com/package/highlightjs-badge):
+You can install it [from NPM](https://www.npmjs.com/package/highlightjs-badgejs):
 
 ```ps
-npm install highlightjs-badge
+npm install highlightjs-badgejs
 ```
 
 ### Usage
@@ -130,8 +130,8 @@ Alternately you can completely replace the template and styling. If you look at 
 </style>
 <div id="CodeBadgeTemplate" style="display:none">
     <div class="code-badge">
-        <div class="code-badge-language">{{language}}</div>
-        <div title="Copy to clipboard">
+        <div class="code-badge-language">{{label}} {{language}}</div>
+        <div title="{{title}}">
             <i class="{{copyIconClass}} code-badge-copy-icon"></i>
         </div>
      </div>
@@ -186,15 +186,20 @@ Licensed under the MIT License. There's no charge to use, integrate or modify th
 
 ### Version History
 
-### v0.1.5
+### v0.0.2
 
-* **Turn off code badge in Print Media Style**  
-Added media class so that the code-badge is not shown when printing is active for print or PDF generation.
+* **Fixed code**  
+  * Some code fixing in order to improve logic of new options
 
-* **Fix Internet Explorer missing Line Feeds**  
-Fixed issue where IE 11/10 was not properly picking up line breaks in the copied text content. Still useful for those of us using the Web Browser control in Windows. Fixed by using `textContent` instead of `innerText`.
 
-* **Badge Position on Scrolled Content**   
-Fixed issue where the badge overlay would not properly stay right aligned when a code block was scrolled horizontally. Fixed by moving `position:relative` up to the `<pre>` tag **via code**. Unfortunately this style feature is not directly settable via CSS so the relative style gets hardcoded when the badge is added to the page.
+### v0.0.1
 
+* **Added new options**  
+  * <b>title</b> : allow to set a different title on hover 
+  * <b>label</b> : allow to set a prefix on badge name
+  * <b>clickableBadge</b> : if set "true" allow to have pointer and click event on badge in addition to icon click
+  * <b>hasLineNumber</b> : if set "true" indicates that content as line number plugin activated 
+
+* **Fixed bugs**  
+  * Options not correctly initialized
 
