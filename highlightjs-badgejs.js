@@ -124,7 +124,9 @@ function highlightJsBadge(opt) {
         // Label in addition to language name on badge     
         label: "",
         // If whole badge is "clickable"
-        badgeClickable: "false"
+        badgeClickable: "false",
+        // Xml Beatifier
+        xmlBeautifier: "false"
     };
 
     function initialize(opt) {
@@ -238,14 +240,14 @@ function highlightJsBadge(opt) {
                 if ($clicked.classList.contains("code-badge-copy-icon")) {
                     e.preventDefault();
                     e.cancelBubble = true;
-                    copyCodeToClipboard(e);
+                    copyCodeToClipboard(e, lang);
                 }
                 // on badge
                 if(Boolean(options.badgeClickable)) {
                 	if ($clicked.className.indexOf('code-badge') != -1) {
                          e.preventDefault();
                          e.cancelBubble = true;
-                         copyCodeToClipboard(e);
+                         copyCodeToClipboard(e, lang);
                     }
                 }
                 return false;
@@ -253,7 +255,7 @@ function highlightJsBadge(opt) {
         
     }
   
-    function copyCodeToClipboard(e) {
+    function copyCodeToClipboard(e, lang) {
         // walk back up to <pre> tag
         var $origCode = e.srcElement.parentElement.parentElement.parentElement;
         
@@ -267,6 +269,11 @@ function highlightJsBadge(opt) {
         // Create a textblock and assign the text and add to document
         var el = document.createElement('textarea');
         el.value = text.trim();
+        // Beautifier
+        if(Boolean(options.xmlBeautifier) && lang.toUpperCase() == 'xml'.toUpperCase()){
+            el.value = xmlBeautifier(el.value);
+        }
+
         document.body.appendChild(el);
         el.style.display = "block";
     
@@ -284,6 +291,17 @@ function highlightJsBadge(opt) {
         
         // show the check icon (copied) briefly
         swapIcons($origCode);     
+    }
+
+    function xmlBeautifier(xml, tab) {
+        var formatted = '', indent= '';
+        tab = tab || '\t';
+        xml.split(/>\s*</).forEach(function(node) {
+            if (node.match( /^\/\w/ )) indent = indent.substring(tab.length); // decrease indent by one 'tab'
+            formatted += indent + '<' + node + '>\r\n';
+            if (node.match( /^<?\w[^>]*[^\/]$/ )) indent += tab;              // increase indent
+        });
+        return formatted.substring(1, formatted.length-3);
     }
 
     function swapIcons($code) {
