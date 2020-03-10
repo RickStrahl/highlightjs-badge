@@ -51,6 +51,7 @@ Some other options added from the original:
 * <b>label</b> : allow to set a prefix on badge name
 * <b>clickableBadge</b> : if set "true" allow to have pointer and click event on badge in addition to icon click
 * <b>hasLineNumber</b> : if set "true" indicates that content as line number plugin activated 
+* <b>xmlBeautifier</b> : if set "true" indicates that content (if xml) has been copied as beautif, otherwirse as original content
 
 
 ### Styling
