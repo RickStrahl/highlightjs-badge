@@ -186,6 +186,13 @@ Licensed under the MIT License. There's no charge to use, integrate or modify th
 
 ### Version History
 
+### v0.0.3
+
+* **XML Beautifier**  
+  * Added option xmlBeautifier
+  * <b>xmlBeautifier  (true/false default : false)</b> : allow to beautify content copied if language is "xml"
+
+
 ### v0.0.2
 
 * **Fixed code**  
@@ -197,8 +204,8 @@ Licensed under the MIT License. There's no charge to use, integrate or modify th
 * **Added new options**  
   * <b>title</b> : allow to set a different title on hover 
   * <b>label</b> : allow to set a prefix on badge name
-  * <b>clickableBadge</b> : if set "true" allow to have pointer and click event on badge in addition to icon click
-  * <b>hasLineNumber</b> : if set "true" indicates that content as line number plugin activated 
+  * <b>clickableBadge  (true/false default : false)</b> : if set "true" allow to have pointer and click event on badge in addition to icon click
+  * <b>hasLineNumber (true/false default : false)</b> : if set "true" indicates that content as line number plugin activated 
 
 * **Fixed bugs**  
   * Options not correctly initialized
