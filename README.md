@@ -187,6 +187,10 @@ Licensed under the MIT License. There's no charge to use, integrate or modify th
 
 ### Version History
 
+### v0.0.4
+
+* Bug fix
+
 ### v0.0.3
 
 * **XML Beautifier**  
