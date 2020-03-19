@@ -232,9 +232,10 @@ function highlightJsBadge(opt) {
         }
 
         var $content = document.querySelector(options.contentSelector);
-
-        // single copy click handler on icon
-        $content.addEventListener("click",
+        // check selector
+        if($content != null) {
+            // single copy click handler on icon
+            $content.addEventListener("click",
             function (e) {                               
                 var $clicked = e.srcElement;
                 if ($clicked.classList.contains("code-badge-copy-icon")) {
@@ -244,15 +245,15 @@ function highlightJsBadge(opt) {
                 }
                 // on badge
                 if(Boolean(options.badgeClickable)) {
-                	if ($clicked.className.indexOf('code-badge') != -1) {
-                         e.preventDefault();
-                         e.cancelBubble = true;
-                         copyCodeToClipboard(e, lang);
+                    if ($clicked.className.indexOf('code-badge') != -1) {
+                        e.preventDefault();
+                        e.cancelBubble = true;
+                        copyCodeToClipboard(e, lang);
                     }
                 }
                 return false;
             });
-        
+        }     
     }
   
     function copyCodeToClipboard(e, lang) {
