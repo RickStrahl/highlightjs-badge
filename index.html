@@ -76,7 +76,7 @@ Content-Length: 12332
             hljs.highlightBlock(pres[i]);
         }
         var options = {
-            contentSelector: "#ArticleBody",
+            contentSelector: ".container",
             // Delay in ms used for `setTimeout` before badging is applied
             // Use if you need to time highlighting and badge application
             // since the badges need to be applied afterwards.
@@ -86,7 +86,13 @@ Content-Length: 12332
             // CSS class(es) used to render the copy icon.
             copyIconClass: "fa fa-copy",
             // CSS class(es) used to render the done icon.
-            checkIconClass: "fa fa-check text-success"
+            checkIconClass: "fa fa-check text-success",
+
+            // intercept text copying - passed in text return text out
+            onBeforeCodeCopied: function(text) {                
+                text = "$$$ " + text;
+                return text;
+            }
         };
         window.highlightJsBadge(options);
     },10);

@@ -52,6 +52,37 @@ The following is a typical configuration for both highlightJs and highlightJs-Ba
     window.highlightJsBadge(options);
 </script>
 ```
+### Options Available
+The following options are available to pass into the function, which control the behavior of the badge generation.
+
+```js
+var options = {
+    // the selector for the badge template
+    templateSelector: "#CodeBadgeTemplate",
+
+    // base content CSS selector that is searched for snippets
+    contentSelector: "body",
+
+    // Delay in ms used for `setTimeout` before badging is applied
+    // Use if you need to time highlighting and badge application
+    // since the badges need to be applied afterwards.
+    // 0 - direct execution (ie. you handle timing
+    loadDelay: 0,
+
+    // CSS class(es) used to render the copy icon.
+    copyIconClass: "fa fa-copy",     
+    // optional content for icons class (<i class="fa fa-copy"></i> or <i class="material-icons">file_copy</i>)
+    copyIconContent: "",
+
+    // CSS class(es) used to render the done icon.
+    checkIconClass: "fa fa-check text-success",
+    checkIconContent: "",
+
+    // function called before code is placed on clipboard
+    // Example:  function(text) { return text + " $$$"; }
+    onBeforeCodeCopied: null        
+};
+```
 
 ### Styling
 The default script includes default styling that should work great with dark themed syntax, and fairly well with light themed syntax.
@@ -183,6 +214,11 @@ Licensed under the MIT License. There's no charge to use, integrate or modify th
 
 
 ### Version History
+  
+### v0.1.7
+
+* **Add onBeforeCopyCode hook**  
+You can provide an `options.onBeforeCopyCode` function to intercept the pasted text and fix up the text before it is pasted into the clipboard.
 
 ### v0.1.6
 

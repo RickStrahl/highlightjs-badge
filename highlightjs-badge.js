@@ -90,8 +90,6 @@ Uses some ES6 features so won't work in IE without shims:
 // Pass this if window is not defined yet
 }(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 
-
-    
 if (typeof highlightJsBadgeAutoLoad !== 'boolean')
     var highlightJsBadgeAutoLoad = false;
 
@@ -116,7 +114,11 @@ function highlightJsBadge(opt) {
 
         // CSS class(es) used to render the done icon.
         checkIconClass: "fa fa-check text-success",
-        checkIconContent: ""  
+        checkIconContent: "",
+
+        // function called before code is placed on clipboard
+        // Passed in text and returns back text function(text) { return text; }
+        onBeforeCodeCopied: null        
     };
 
     function initialize(opt) {
@@ -242,6 +244,9 @@ function highlightJsBadge(opt) {
         var $code = $origCode.querySelector("pre>code");
         var text = $code.textContent || $code.innerText;
         
+        if (options.onBeforeCodeCopied)
+            text = options.onBeforeCodeCopied(text);
+                
         // Create a textblock and assign the text and add to document
         var el = document.createElement('textarea');
         el.value = text.trim();
@@ -357,17 +362,21 @@ function highlightJsBadge(opt) {
         return t;
     }
 
-    initialize();
+    initialize(opt);
 }
 
 
 // global reference Window
 window.highlightJsBadge = highlightJsBadge;
 
+
+// module export
+if (window.module && window.module.exports)
+   window.module.exports.highlightJsBadge = highlightJsBadge;
+
 if (highlightJsBadgeAutoLoad)
     highlightJsBadge();
-
-
+    
 }));
 
 
