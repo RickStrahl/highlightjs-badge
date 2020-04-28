@@ -117,7 +117,7 @@ function highlightJsBadge(opt) {
         checkIconContent: "",
 
         // function called before code is placed on clipboard
-        // Passed in text and returns back text function(text) { return text; }
+        // Passed in text and returns back text function(text, codeElement) { return text; }
         onBeforeCodeCopied: null        
     };
 
@@ -245,7 +245,7 @@ function highlightJsBadge(opt) {
         var text = $code.textContent || $code.innerText;
         
         if (options.onBeforeCodeCopied)
-            text = options.onBeforeCodeCopied(text);
+            text = options.onBeforeCodeCopied(text, $code);
                 
         // Create a textblock and assign the text and add to document
         var el = document.createElement('textarea');

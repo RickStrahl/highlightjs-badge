@@ -78,8 +78,9 @@ var options = {
     checkIconClass: "fa fa-check text-success",
     checkIconContent: "",
 
-    // function called before code is placed on clipboard
-    // Example:  function(text) { return text + " $$$"; }
+    // function called before code is placed on clipboard that allows you inspect and modify
+    // the text that goes onto the clipboard. Passes text and code root element (hljs).
+    // Example:  function(text, codeElement) { return text + " $$$"; }
     onBeforeCodeCopied: null        
 };
 ```
