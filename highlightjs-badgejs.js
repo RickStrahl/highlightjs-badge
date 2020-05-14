@@ -231,11 +231,12 @@ function highlightJsBadge(opt) {
             pre.insertBefore($newHud, el);
         }
 
-        var $content = document.querySelector(options.contentSelector);
+        var $content = document.querySelectorAll(options.contentSelector);
         // check selector
         if($content != null) {
+            $( $content ).each(function( index ) {
             // single copy click handler on icon
-            $content.addEventListener("click",
+            this.addEventListener("click",
             function (e) {                               
                 var $clicked = e.srcElement;
                 if ($clicked.classList.contains("code-badge-copy-icon")) {
@@ -253,6 +254,7 @@ function highlightJsBadge(opt) {
                 }
                 return false;
             });
+          }); // each
         }     
     }
   
