@@ -1,14 +1,14 @@
 {
   "name": "highlightjs-badge",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "This small JavaScript library that complements the [highlighJs Syntax Highligher](https://highlightjs.org/) by providing an overlay badge that lets you copy code to the clipboard and display the active Syntax language.",
   "main": "highlightjs-badge.js",
   "dependencies": {},
   "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "uglify-js": "^3.6.0"
+    "browser-sync": "^2.26.12",
+    "uglify-js": "^3.10.4"
   },
-  "scripts": {    
+  "scripts": {
     "build": "uglifyjs --compress --mangle -o highlightjs-badge.min.js  -- highlightjs-badge.js",
     "start": "browser-sync start --server --files '*.htm*, *.css, *.js' --port 5021",
     "start-dotnet": "livereloadserver"

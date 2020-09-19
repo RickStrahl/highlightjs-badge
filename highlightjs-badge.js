@@ -198,6 +198,8 @@ function highlightJsBadge(opt) {
                 lang = "typescript";
             else if (lang == "fox")
                 lang = "foxpro";
+            else if (lang == "txt")                
+                lang = "text"
 
                 
             var html = hudText.replace("{{language}}", lang)
